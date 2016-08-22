@@ -3,7 +3,7 @@ package Day1.Primatives;
 /**
  * Created by student on 22/08/2016.
  */
-public class Arrays {
+public class ArraysInClass {
 
     public static void main(String[] args){
 
