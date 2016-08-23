@@ -14,7 +14,7 @@ public class Employee extends Person {
 
     Employee(BloodType bloodType, String firstName, String lastName, short height, double weight, LocalDate birthDate, SexType sex, String pos, LocalDate hd){
 
-        super(bloodType, firstName, lastName, height, weight, birthDate, sex);
+        super(firstName, lastName, height, weight, birthDate, sex, bloodType);
         this.position = pos;
         this.hireDate = hd;
 

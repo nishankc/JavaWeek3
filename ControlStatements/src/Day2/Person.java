@@ -89,14 +89,15 @@ public class Person {
         this.birthDate = birthDate;
     }
 
-    public Person(BloodType bloodType, String firstName, String lastName, short height, double weight, LocalDate birthDate, SexType sex) {
-        this.bloodType = bloodType;
+    public Person(String firstName, String lastName, short height, double weight, LocalDate birthDate, SexType sex, BloodType bloodType) {
+
         this.firstName = firstName;
         this.lastName = lastName;
         this.height = height;
         this.weight = weight;
         this.birthDate = birthDate;
         this.sex = sex;
+        this.bloodType = bloodType;
     }
 
     //methods
