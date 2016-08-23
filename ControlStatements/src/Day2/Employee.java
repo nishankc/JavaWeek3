@@ -12,6 +12,14 @@ public class Employee extends Person {
 
     Employee(){}
 
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public void setHireDate(LocalDate hireDate) {
+        this.hireDate = hireDate;
+    }
+
     Employee(String firstName, String lastName, short height, double weight, LocalDate birthDate, SexType sex, String pos, LocalDate hd){
 
         super(firstName, lastName, height, weight, birthDate, sex);

@@ -22,9 +22,15 @@ public class TaskProcessing {
 
     }
 
-    static void searchContact(List<String> data){
+    static void searchContact(String search){
 
-        
+        for(Contact e: contacts){
+            if(e.getPerson().getFirstName() != null && e.getPerson().getFirstName().contains(search)){
+                System.out.println(e);
+            }
+        }
+
+
 
     }
 

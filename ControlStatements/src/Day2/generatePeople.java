@@ -25,8 +25,8 @@ public class generatePeople {
 
     static void addPeople(){
 
-        people.add(bob);
-        people.add(ted);
+        employees.add(bobfrog);
+
 
     }
 
@@ -36,5 +36,7 @@ public class generatePeople {
 
 
     }
+
+
 
 }

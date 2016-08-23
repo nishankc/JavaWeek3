@@ -1,5 +1,7 @@
 package AddressBook;
 
+import com.sun.javafx.tk.Toolkit;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -46,7 +48,7 @@ public class CommandGUI {
                 TaskProcessing.printAll();
                 display();
             case 5:
-
+                TaskProcessing.searchContact("nish");
             case 6:
                 break;
 
@@ -102,6 +104,8 @@ public class CommandGUI {
 
 
     }
+
+
 
 
 }

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import static Day2.generatePeople.employees;
+
 /**
  * Created by student on 23/08/2016.
  */
@@ -32,7 +34,7 @@ public class commandGUI {
 
         } while (choice < 1 || choice > 6);
 
-
+        int index;
         List<String> tempData = new ArrayList<>();
 
         switch (choice){
@@ -42,11 +44,20 @@ public class commandGUI {
                 display();
 
             case 2:
+                index = findFirstName();
+                tempData = inputScreen();
+                TaskProcessing.editDetails(index,tempData);
+
             case 3:
+                TaskProcessing.removeEmployee(requestIndex());
+
             case 4:
                 TaskProcessing.printAll();
                 display();
             case 5:
+                index = findFirstName();
+                System.out.println(employees.get(index));
+                display();
             case 6:
                 break;
 
@@ -102,6 +113,21 @@ public class commandGUI {
 
     }
 
+
+    static int findFirstName(){
+        System.out.print("Enter First Name");
+        String firstName = input.next();
+        return TaskProcessing.searchFirstName(firstName);
+    }
+
+
+
+    static int requestIndex(){
+
+        System.out.print("Enter Employee Index to remove: ");
+        return input.nextInt();
+
+    }
 
 }
 
