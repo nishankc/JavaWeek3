@@ -10,10 +10,7 @@ public class MainProgram {
 
         generateContact.addContact();
 
-
-        for(Contact c : contacts){
-            System.out.println(c);
-        }
+        CommandGUI.display();
 
     }
 

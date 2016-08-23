@@ -10,20 +10,8 @@ public class MainProgram {
 
     public static void main(String[] args){
 
-        generatePeople.addPeople();
 
-
-        for(Person p : people){
-            System.out.println(p);
-        }
-
-
-        generatePeople.addEmployee();
-
-        for(Employee e: employees){
-            System.out.print(e);
-        }
-
+        commandGUI.display();
 
     }
 

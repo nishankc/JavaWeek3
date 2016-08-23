@@ -66,7 +66,7 @@ public class Address {
 
     //constructors
 
-    public Address(String streetName, int houseNumber, String city, String town, String postcode) {
+    public Address(int houseNumber, String streetName, String city, String town, String postcode) {
         this.streetName = streetName;
         this.houseNumber = houseNumber;
         this.city = city;

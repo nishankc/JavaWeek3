@@ -89,7 +89,7 @@ public class Person {
         this.birthDate = birthDate;
     }
 
-    public Person(String firstName, String lastName, short height, double weight, LocalDate birthDate, SexType sex, BloodType bloodType) {
+    public Person(String firstName, String lastName, short height, double weight, LocalDate birthDate, SexType sex) {
 
         this.firstName = firstName;
         this.lastName = lastName;
@@ -97,7 +97,7 @@ public class Person {
         this.weight = weight;
         this.birthDate = birthDate;
         this.sex = sex;
-        this.bloodType = bloodType;
+        //this.bloodType = bloodType;
     }
 
     //methods
@@ -130,7 +130,7 @@ public class Person {
     @Override
     public String toString(){
 
-        return  String.format(" %s %s %s %s %s %s %s", this.firstName, this.lastName, this.getAge(), this.height, this.weight, this.getSex().toString(), this.getBloodType().toString());
+        return  String.format(" %s %s %s %s %s %s ", this.firstName, this.lastName, this.getAge(), this.height, this.weight, this.getSex().toString());
 
     }
 

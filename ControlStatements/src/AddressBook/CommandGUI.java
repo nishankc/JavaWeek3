@@ -1,4 +1,4 @@
-package Day2;
+package AddressBook;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,7 @@ import java.util.Scanner;
 /**
  * Created by student on 23/08/2016.
  */
-public class commandGUI {
+public class CommandGUI {
 
     static Scanner input = new Scanner(System.in);
 
@@ -17,11 +17,11 @@ public class commandGUI {
 
         do{
 
-            System.out.println("Welcome to Employee Database");
-            System.out.println("1. Add an Employee");
-            System.out.println("2. Edit an Employee");
-            System.out.println("3. Remove an Employee");
-            System.out.println("4. List all Employee");
+            System.out.println("Welcome to The Contacts Database");
+            System.out.println("1. Add an Contact");
+            System.out.println("2. Edit an Contact");
+            System.out.println("3. Remove an Contact");
+            System.out.println("4. List all Contacts");
             System.out.println("5. Search by First Name");
             System.out.println("6. Exit");
             System.out.println();
@@ -38,15 +38,15 @@ public class commandGUI {
         switch (choice){
             case 1:
                 tempData = inputScreen();
-                TaskProcessing.createEmployee(tempData);
+                TaskProcessing.createContact(tempData);
                 display();
-
             case 2:
             case 3:
             case 4:
                 TaskProcessing.printAll();
                 display();
             case 5:
+
             case 6:
                 break;
 
@@ -58,51 +58,50 @@ public class commandGUI {
 
     private static List<String> inputScreen() {
 
-        List<String> employeeData = new ArrayList<>();
+        List<String> contactData = new ArrayList<>();
         input.nextLine();
 
         System.out.print("Enter First Name:");
-        employeeData.add(input.nextLine());
+        contactData.add(input.nextLine());
 
         System.out.print("Enter Last Name: ");
-        employeeData.add(input.nextLine());
-
-        System.out.print("Enter height: ");
-        employeeData.add(input.nextLine());
-
-        System.out.print("Enter weight: ");
-        employeeData.add(input.nextLine());
+        contactData.add(input.nextLine());
 
         System.out.print("Enter DOB (YYYY/MM/DD");
         String dob = input.nextLine();
         String[] dobData = dob.split("/");
 
         for(int i = 0; i <= dobData.length-1; i++){
-            employeeData.add(dobData[i]);
+            contactData.add(dobData[i]);
         }
 
-        System.out.print("Enter Sex M/F");
-        employeeData.add(input.nextLine());
+        System.out.print("Enter house Number: ");
+        contactData.add(input.nextLine());
+
+        System.out.print("Enter Street Name: ");
+        contactData.add(input.nextLine());
 
 
 
-        System.out.print("Enter Position: ");
-        employeeData.add(input.nextLine());
+        System.out.print("Enter City");
+        contactData.add(input.nextLine());
 
-        System.out.print("Enter Hire Date (YYYY/MM/DD");
-        String hireDate = input.nextLine();
-        String[] hdData = hireDate.split("/");
+        System.out.print("Enter Town");
+        contactData.add(input.nextLine());
 
-        for(int i = 0; i <= dobData.length-1; i++){
-            employeeData.add(hdData[i]);
-        }
+        System.out.print("Enter PostCode: ");
+        contactData.add(input.nextLine());
 
-        return employeeData;
+        System.out.print("Enter Email: ");
+        contactData.add(input.nextLine());
+
+        System.out.print("Enter PhoneNumber: ");
+        contactData.add(input.nextLine());
+
+        return contactData;
 
 
     }
 
 
 }
-
-
