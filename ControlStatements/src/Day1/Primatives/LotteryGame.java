@@ -1,92 +1,122 @@
 package Day1.Primatives;
 
+import java.util.Random;
+
+
+
 import java.util.*;
 
 /**
- * Created by student on 22/08/2016.
+ * Created by Nishank on 22/08/2016.
  */
+
+
 public class LotteryGame {
 
-    public static void main(String[] args){
-
-        System.out.println(DisplayLotteryNumbers(RandomLotteryNumbers()));
-
-
-
-
-    }
-
-
-    public static int[] RandomLotteryNumbers(){
+    public static int[] AddLotteryNumbers(){
 
         int[] lotteryNumbers = new int[5];
 
         for(int i = 0; i < lotteryNumbers.length; i++){
 
-            lotteryNumbers[i] = GenerateNumbers(lotteryNumbers);
+            lotteryNumbers[i] = generateLotteryNumbers(lotteryNumbers);
 
         }
+
+        System.out.println("The Lottery Numbers Are: \n");
+        DisplayNumbers(lotteryNumbers);
+
 
         return lotteryNumbers;
     }
 
+    public static int generateLotteryNumbers(int[] numbers)
+    {
+        Random number = new Random();
+        int random = (number.nextInt(9)+1);
 
-    public static int GenerateNumbers(int[] lotteryNumbers){
-
-        Random randomNumber = new Random();
-        int random = Math.abs(randomNumber.nextInt(9)+1);
-
-        for(int i = 0; i < lotteryNumbers.length; i++){
-
-            if(lotteryNumbers[i] == random){
-                return GenerateNumbers(lotteryNumbers);
+        for(int i = 0; i <numbers.length ; i++)
+        {
+            if(numbers[i] == random)
+            {
+                return generateLotteryNumbers(numbers);
             }
-
         }
+
+
         return random;
     }
 
+    public static void DisplayNumbers(int[] numbers) {
+        for (int i = 0; i < numbers.length; i++) {
+            if (i > 0) {
+                System.out.print(" ");
+            }
+            Arrays.sort(numbers);
+            System.out.print(numbers[i]);
+        }
+        System.out.println("\n");
+    }
 
-    public static String DisplayLotteryNumbers(int[] numbers){
+    public static String getUserInput(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Please Enter your 5 Numbers, followed by a space after each number: ");
+        String userNumbers = input.nextLine();
+        return userNumbers;
+    }
 
-        String display = "";
+    public static int[] userNumbers(String userNumbers){
+
+        int[] numbers = new int[5];
+        String[] stringArray = userNumbers.split(" ");
+
+        for (int i = 0; i < stringArray.length; i++) {
+            String numberAsString = stringArray[i];
+            numbers[i] = Integer.parseInt(numberAsString);
+        }
 
         Arrays.sort(numbers);
+        DisplayNumbers(numbers);
 
-        for(int s : numbers){
-
-            display += String.format(s + " ");
-
-        }
-
-        return display;
-
+        return numbers;
     }
 
-    public static String GetUserLotteryNumbers(){
 
-        Scanner input = new Scanner(System.in);
-        System.out.println("Please Enter your 5 numbers(followed by a space between each number");
-        String userNumbers = input.nextLine();
 
-        return userNumbers;
 
-    }
+    static void CheckNumbers(int lotteryNumbers[],int userNumbers[])
+    {
 
-    public static int[] UserLotteryArray(String userLotteryNumbers){
+        int[] combine = new int[lotteryNumbers.length + userNumbers.length];
+        System.arraycopy(lotteryNumbers, 0, combine, 0, lotteryNumbers.length);
+        System.arraycopy(userNumbers, 0, combine, lotteryNumbers.length, userNumbers.length);
 
-        int[] userNumbers = new int[5];
-        String[] stringUserNumbers = userLotteryNumbers.split(" ");
+        DisplayNumbers(combine);
 
-        for(int i = 0; i < stringUserNumbers.length; i++){
-            String convert = stringUserNumbers[i];
 
-            userNumbers = Integer.parseInt(stringUserNumbers);
+
+        for(int x = 1; x < combine.length; x++){
+
+            if(combine[x] == combine[x-1]){
+                System.out.println("The Matching Numbers are: " + combine[x]);
+            }
         }
 
 
+
     }
 
 
+
+    public static void main(String[] args) {
+
+
+
+
+
+        CheckNumbers(userNumbers(getUserInput()), AddLotteryNumbers());
+
+    }
 
 }
+
