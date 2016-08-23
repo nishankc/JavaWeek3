@@ -47,10 +47,10 @@ public class commandGUI {
                 index = findFirstName();
                 tempData = inputScreen();
                 TaskProcessing.editDetails(index,tempData);
-
+                display();
             case 3:
                 TaskProcessing.removeEmployee(requestIndex());
-
+                display();
             case 4:
                 TaskProcessing.printAll();
                 display();
