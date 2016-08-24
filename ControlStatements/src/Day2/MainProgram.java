@@ -1,6 +1,8 @@
 package Day2;
+import javax.swing.*;
+
 import static Day2.generatePeople.employees;
-import static Day2.generatePeople.people;
+
 
 
 /**
@@ -12,8 +14,13 @@ public class MainProgram {
 
 
         generatePeople.addEmployee();
-        commandGUI.display();
+        //commandGUI.display();
+
+        WelcomeWindow entry = new WelcomeWindow();
+
 
     }
+
+
 
 }

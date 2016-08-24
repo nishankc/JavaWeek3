@@ -1,10 +1,12 @@
 package AddressBook;
 
-import com.sun.javafx.tk.Toolkit;
+
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import static AddressBook.generateContact.contacts;
 
 /**
  * Created by student on 23/08/2016.
@@ -16,6 +18,8 @@ public class CommandGUI {
     static void display(){
 
         int choice;
+        int index;
+        List<String> tempData = new ArrayList<>();
 
         do{
 
@@ -32,28 +36,48 @@ public class CommandGUI {
             //read input
             choice = input.nextInt();
 
-        } while (choice < 1 || choice > 6);
 
 
-        List<String> tempData = new ArrayList<>();
+        } while (choice != 6);
+
+        String invalidInput;
 
         switch (choice){
             case 1:
                 tempData = inputScreen();
                 TaskProcessing.createContact(tempData);
                 display();
+                break;
             case 2:
+                index = findFirstName();
+                tempData = inputScreen();
+                TaskProcessing.editDetails(index,tempData);
+                display();
+                break;
             case 3:
+                TaskProcessing.removeContact(requestIndex());
+                display();
+                break;
             case 4:
                 TaskProcessing.printAll();
                 display();
+                break;
             case 5:
-                TaskProcessing.searchContact("nish");
+                index = findFirstName();
+                System.out.println(contacts.get(index));
+                display();
+                break;
             case 6:
                 break;
+            default:
+                System.out.println("Incorrect Input! Please Enter (1-6)");
+
+
 
 
         }
+
+
 
 
     }
@@ -102,6 +126,19 @@ public class CommandGUI {
 
         return contactData;
 
+
+    }
+
+    static int findFirstName(){
+        System.out.print("Enter First Name");
+        String firstName = input.next();
+        return TaskProcessing.searchFirstName(firstName);
+    }
+
+    static int requestIndex(){
+
+        System.out.print("Enter Contact Index to remove: ");
+        return input.nextInt();
 
     }
 
