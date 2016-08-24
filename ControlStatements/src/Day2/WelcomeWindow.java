@@ -16,6 +16,7 @@ public class WelcomeWindow extends JFrame {
     private JPanel contentPane;
     private  JButton btnEnter;
     private  JLabel lblWelcome;
+    public MainWindow mainFrame;
 
     public WelcomeWindow(){
 

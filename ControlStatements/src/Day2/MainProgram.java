@@ -16,7 +16,11 @@ public class MainProgram {
         generatePeople.addEmployee();
         //commandGUI.display();
 
-        WelcomeWindow entry = new WelcomeWindow();
+        //TaskProcessing.executeGUI();
+
+        WelcomeWindow gui = new WelcomeWindow();
+
+
 
 
     }

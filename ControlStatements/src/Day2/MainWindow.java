@@ -39,7 +39,7 @@ public class MainWindow implements ActionListener{
     private JMenu editMenu;
     private JMenuItem newMenuItem, exitMenuItem, indexMenuItem;
 
-    private JPanel content, listPanel, fieldPanel;
+    private JPanel content, listPanel, fieldPanel, inputPanel, btnPanel;
 
 
     private JList employeeList;
@@ -88,11 +88,20 @@ public class MainWindow implements ActionListener{
         listPanel.add(scrollPane);
         content.add(listPanel);
 
+        //insert the panel with labels and text fields for user input
         fieldPanel = new JPanel();
         TitledBorder title;
         title = BorderFactory.createTitledBorder("Employee Details");
         fieldPanel.setBorder(title);
+        fieldPanel.setVisible(false);
+
         content.add(fieldPanel);
+        fieldPanel.add(createFieldsPanel(), BorderLayout.CENTER);
+
+        //adding the buttons to the panel on the right
+        fieldPanel.add(createButtonPanel(), BorderLayout.SOUTH);
+
+
 
 
 
@@ -145,8 +154,136 @@ public class MainWindow implements ActionListener{
 
     }
 
+    private JPanel createFieldsPanel(){
+
+        inputPanel = new JPanel();
+        inputPanel.setLayout(new GridLayout(0,2,5,5));
+
+        lblFirstName = new JLabel("First Name:");
+        inputPanel.add(lblFirstName);
+        txtFirstName = new JTextField();
+        inputPanel.add(txtFirstName);
+
+        lblLastName = new JLabel("Last Name:");
+        inputPanel.add(lblLastName);
+        txtLastName = new JTextField();
+        inputPanel.add(txtLastName);
+
+        lblHeight = new JLabel("Height:");
+        inputPanel.add(lblHeight);
+        txtHeight = new JTextField();
+        inputPanel.add(txtHeight);
+
+        lblWeight = new JLabel("Weight: ");
+        inputPanel.add(lblWeight);
+        txtWeight = new JTextField();
+        inputPanel.add(txtWeight);
+
+        lblBirthDate = new JLabel("Date of Birth(YYYY/MM/DD): ");
+        inputPanel.add(lblBirthDate);
+        txtBirthDate = new JTextField();
+        inputPanel.add(txtBirthDate);
+
+        lblSex = new JLabel("Enter Sex(M/F): ");
+        inputPanel.add(lblSex);
+        txtSex = new JTextField();
+        inputPanel.add(txtSex);
+
+        lblPosition = new JLabel("Enter Position: ");
+        inputPanel.add(lblPosition);
+        txtPosition = new JTextField();
+        inputPanel.add(txtPosition);
+
+        lblHireDate = new JLabel("Hire Date (YYYY/MM/DD): ");
+        inputPanel.add(lblHireDate);
+        txtHireDate = new JTextField();
+        inputPanel.add(txtHireDate);
+
+
+
+        return inputPanel;
+
+    }
+
+    private JPanel createButtonPanel(){
+
+        btnPanel = new JPanel();
+        btnPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
+
+        btnUpdate = new JButton("Update");
+        btnUpdate.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+
+
+            }
+        });
+
+        btnPanel.add(btnUpdate);
+
+        //btnPanel = new JPanel();
+        //btnPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
+
+        btnRemove = new JButton("Remove");
+        btnRemove.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        btnPanel.add(btnRemove);
+
+        return btnPanel;
+
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        String action = e.getActionCommand();
+
+        if("New".equals(action)){
+
+            fieldPanel.setVisible(true);
+
+        } else if ("Exit".equals(action)){
+            System.exit(0);
+        }
+
     }
+
+    public JTextField getTxtFirstName() {
+        return txtFirstName;
+    }
+
+    public JTextField getTxtLastName() {
+        return txtLastName;
+    }
+
+    public JTextField getTxtHeight() {
+        return txtHeight;
+    }
+
+    public JTextField getTxtWeight() {
+        return txtWeight;
+    }
+
+    public JTextField getTxtBirthDate() {
+        return txtBirthDate;
+    }
+
+    public JTextField getTxtSex() {
+        return txtSex;
+    }
+
+    public JTextField getTxtPosition() {
+        return txtPosition;
+    }
+
+    public JTextField getTxtHireDate() {
+        return txtHireDate;
+    }
+
+    public JPanel getInputPanel(){ return inputPanel;}
 }

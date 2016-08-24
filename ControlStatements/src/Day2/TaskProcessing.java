@@ -11,6 +11,14 @@ import static Day2.generatePeople.employees;
  */
 public class TaskProcessing {
 
+    static WelcomeWindow gui;
+
+    void executeGUI(){
+
+        gui = new WelcomeWindow();
+
+    }
+
     static void createEmployee(List<String> data){
 
         BloodType blood;
@@ -24,8 +32,13 @@ public class TaskProcessing {
 
 
 
-        Employee temp = new Employee(data.get(0),data.get(1), Short.parseShort(data.get(2)), Double.parseDouble(data.get(3)),
-                LocalDate.of(Integer.parseInt(data.get(4)),Integer.parseInt(data.get(5)), Integer.parseInt(data.get(6))), checkSex(data.get(7)), data.get(8),
+        Employee temp = new Employee(data.get(0),
+                data.get(1),
+                Short.parseShort(data.get(2)),
+                Double.parseDouble(data.get(3)),
+                LocalDate.of(Integer.parseInt(data.get(4)),Integer.parseInt(data.get(5)), Integer.parseInt(data.get(6))),
+                checkSex(data.get(7)),
+                data.get(8),
                 LocalDate.of(Integer.parseInt(data.get(9)),Integer.parseInt(data.get(10)), Integer.parseInt(data.get(11))));
 
 
