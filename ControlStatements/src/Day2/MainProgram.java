@@ -12,13 +12,11 @@ public class MainProgram {
 
     public static void main(String[] args){
 
-
+        //add people
         generatePeople.addEmployee();
-        //commandGUI.display();
+        //start the welcome window
+        new WelcomeWindow();
 
-        //TaskProcessing.executeGUI();
-
-        WelcomeWindow gui = new WelcomeWindow();
 
 
 

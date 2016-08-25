@@ -10,7 +10,9 @@ public class MainProgram {
 
         generateContact.addContact();
 
-        CommandGUI.display();
+        //CommandGUI.display();
+        new WelcomeWindow();
+        //new MainWindow();
 
     }
 

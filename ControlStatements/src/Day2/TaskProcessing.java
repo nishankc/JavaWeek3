@@ -11,26 +11,9 @@ import static Day2.generatePeople.employees;
  */
 public class TaskProcessing {
 
-    static WelcomeWindow gui;
-
-    void executeGUI(){
-
-        gui = new WelcomeWindow();
-
-    }
-
     static void createEmployee(List<String> data){
 
         BloodType blood;
-
-
-
-
-
-
-
-
-
 
         Employee temp = new Employee(data.get(0),
                 data.get(1),
