@@ -10,11 +10,13 @@ import static Day2.generatePeople.employees;
  */
 public class MainProgram {
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws Exception {
 
         //add people
-        generatePeople.addEmployee();
+        //generatePeople.addEmployee();
         //start the welcome window
+        //get from database
+        TaskProcessing.prepareDB();
         new WelcomeWindow();
 
 

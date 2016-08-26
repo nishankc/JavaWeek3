@@ -7,6 +7,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.SQLException;
 import java.util.*;
 import java.util.List;
 
@@ -262,10 +263,15 @@ public class MainWindow implements ActionListener{
             public void actionPerformed(ActionEvent e) {
 
                 if(createNew && employeeList.isSelectionEmpty()){
-                    TaskProcessing.createEmployee(getFieldInfo());
-                    createEmployeeList();
-                    createNew = false;
-                    clearTxtFields();
+                    try {
+                        //TaskProcessing.createEmployee(getFieldInfo());
+                        TaskProcessing.newEmployee(getFieldInfo());
+
+                        createEmployeeList();
+                        clearTxtFields();
+                    } catch (SQLException createEx){
+                        JOptionPane.showMessageDialog(null, "ERROR ADDING EMPLOYEE" + System.lineSeparator() + createEx);
+                    }
                 } else{
                     TaskProcessing.editDetails(employeeIndex,getFieldInfo());
                     createEmployeeList();
@@ -366,18 +372,22 @@ public class MainWindow implements ActionListener{
         data.add(txtHeight.getText());
         data.add(txtWeight.getText());
 
-        String[] stringDob = txtBirthDate.getText().split("-");
-        data.add(stringDob[0]);
-        data.add(stringDob[1]);
-        data.add(stringDob[2]);
+//        String[] stringDob = txtBirthDate.getText().split("-");
+//        data.add(stringDob[0]);
+//        data.add(stringDob[1]);
+//        data.add(stringDob[2]);
+
+        data.add(txtBirthDate.getText());
 
         data.add(txtSex.getText());
         data.add(txtPosition.getText());
 
-        String[] stringHireDate = txtBirthDate.getText().split("-");
-        data.add(stringHireDate[0]);
-        data.add(stringHireDate[1]);
-        data.add(stringHireDate[2]);
+//        String[] stringHireDate = txtBirthDate.getText().split("-");
+//        data.add(stringHireDate[0]);
+//        data.add(stringHireDate[1]);
+//        data.add(stringHireDate[2]);
+
+        data.add(txtHireDate.getText());
 
         return data;
     }
